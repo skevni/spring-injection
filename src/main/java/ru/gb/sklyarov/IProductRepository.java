@@ -8,5 +8,6 @@ import java.util.List;
 public interface IProductRepository {
 
     Product getProductBytId(Long id);
+
     List<Product> getAllProducts();
 }

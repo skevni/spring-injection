@@ -10,7 +10,7 @@ public class ProductService {
     IProductRepository productRepository;
 
     @Autowired
-    public void setProductRepository(IProductRepository productRepository){
+    public void setProductRepository(IProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
@@ -18,7 +18,7 @@ public class ProductService {
         return productRepository.getProductBytId(id);
     }
 
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts() {
         return productRepository.getAllProducts();
     }
 }

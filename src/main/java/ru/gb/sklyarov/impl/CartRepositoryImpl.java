@@ -15,9 +15,10 @@ public class CartRepositoryImpl implements ICartRepository {
     List<Product> productCart;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         this.productCart = new ArrayList<>();
     }
+
     @Override
     public boolean addProduct(Product product) {
         return productCart.add(product);

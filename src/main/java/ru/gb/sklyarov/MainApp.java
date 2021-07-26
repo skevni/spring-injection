@@ -12,10 +12,6 @@ public class MainApp {
         CartService cartService = context.getBean(CartService.class);
         ProductService productService = context.getBean(ProductService.class);
 
-//        cartService.addProduct(productService.getProductById(2L));
-//        cartService.addProduct(productService.getProductById(5L));
-//
-
         Scanner scanner = new Scanner(System.in);
 
 
@@ -51,7 +47,6 @@ public class MainApp {
         System.out.println("Ваш заказ:");
         printCartContent(cartService);
         scanner.close();
-//        System.out.println(cartService.getCartContent());
     }
 
     public static void printProductsList(ProductService productService) {
