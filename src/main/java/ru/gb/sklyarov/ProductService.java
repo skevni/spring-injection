@@ -7,7 +7,7 @@ import java.util.List;
 
 @Component
 public class ProductService {
-    IProductRepository productRepository;
+    private IProductRepository productRepository;
 
     @Autowired
     public void setProductRepository(IProductRepository productRepository) {

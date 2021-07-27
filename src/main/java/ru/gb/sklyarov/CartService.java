@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public class CartService {
 
-    ICartRepository cartRepository;
+    private ICartRepository cartRepository;
 
     @Autowired
     public void setCartRepository(ICartRepository cartRepository) {

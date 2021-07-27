@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 @Scope("prototype")
 public class CartRepositoryImpl implements ICartRepository {
-    List<Product> productCart;
+    private List<Product> productCart;
 
     @PostConstruct
     public void init() {
