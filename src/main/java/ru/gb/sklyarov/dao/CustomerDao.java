@@ -7,7 +7,7 @@ import ru.gb.sklyarov.SessionFactoryMy;
 
 @Component
 public class CustomerDao {
-    private SessionFactory factory;
+    private final SessionFactory factory;
 
     @Autowired
     public CustomerDao(SessionFactoryMy factory) {

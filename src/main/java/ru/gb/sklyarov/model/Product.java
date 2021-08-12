@@ -8,14 +8,14 @@ import java.util.List;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "title")
     private String title;
 
     @Column(name = "cost")
-    private Double coast;
+    private Double cost;
 
     @OneToMany(mappedBy = "product")
     List<Order> orders;
@@ -39,20 +39,19 @@ public class Product {
         this.title = title;
     }
 
-    public Double getCoast() {
-        return coast;
+    public Double getCost() {
+        return cost;
     }
 
-    public void setCoast(Double coast) {
-        this.coast = coast;
+    public void setCost(Double cost) {
+        this.cost = Math.ceil(cost * 100) / 100;
     }
 
     @Override
     public String toString() {
         return "Product{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", coast=" + coast +
+                "title='" + title + '\'' +
+                ", product cost=" + String.format("%.2f", cost) +
                 '}';
     }
 }

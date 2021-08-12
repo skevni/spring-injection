@@ -1,7 +1,5 @@
 package ru.gb.sklyarov.model;
 
-import ru.gb.sklyarov.dao.CustomerDao;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -41,9 +39,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", customerName='" + customerName + '\'' +
-                '}';
+        return "Customer='" + customerName + '\'';
     }
 }

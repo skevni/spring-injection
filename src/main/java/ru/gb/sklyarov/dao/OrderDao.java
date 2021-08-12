@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.gb.sklyarov.SessionFactoryMy;
 import ru.gb.sklyarov.model.Customer;
+import ru.gb.sklyarov.model.Order;
 import ru.gb.sklyarov.model.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class OrderDao {
-    private SessionFactory factory;
+    private final SessionFactory factory;
 
     @Autowired
     public OrderDao(SessionFactoryMy factory) {
@@ -74,5 +74,29 @@ public class OrderDao {
         }
 
         return customerList;
+    }
+
+    public List<Order> getOrderByCustomer(Long id) {
+        List<Order> orders;
+        try (Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
+            orders = session.createQuery("select od from Order od inner join od.product inner join od.customer where od.customer.id = :id", Order.class)
+                    .setParameter("id", id)
+                    .getResultList();
+            session.getTransaction().commit();
+        }
+        return orders;
+    }
+
+    public List<Order> getOrderByProduct(Long id) {
+        List<Order> orders;
+        try (Session session = factory.getCurrentSession()) {
+            session.beginTransaction();
+            orders = session.createQuery("select od from Order od inner join od.product inner join od.customer where od.product.id = :id", Order.class)
+                    .setParameter("id", id)
+                    .getResultList();
+            session.getTransaction().commit();
+        }
+        return orders;
     }
 }

@@ -18,7 +18,7 @@ public class Order {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @Column(name="cost")
+    @Column(name = "cost")
     private Double cost;
 
     public Order() {
@@ -53,15 +53,16 @@ public class Order {
     }
 
     public void setCost(Double cost) {
-        this.cost = cost;
+        this.cost = Math.ceil(cost * 100) / 100;
     }
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Order {" +
                 "id=" + id +
-                ", customer=" + customer +
-                ", cost=" + cost +
-                '}';
+                "\n, " + customer +
+                "\n, " + product +
+                "\n, purchase costs=" + String.format("%.2f", cost) +
+                "}\n";
     }
 }

@@ -6,7 +6,7 @@ import ru.gb.sklyarov.dao.CustomerDao;
 
 @Service
 public class CustomerService {
-    private CustomerDao customerRepository;
+    private final CustomerDao customerRepository;
 
     @Autowired
     public CustomerService(CustomerDao customerRepository) {
