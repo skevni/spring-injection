@@ -18,6 +18,9 @@ public class Order {
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @Column(name="cost")
+    private Double cost;
+
     public Order() {
     }
 
@@ -45,12 +48,20 @@ public class Order {
         this.product = product;
     }
 
+    public Double getCost() {
+        return cost;
+    }
+
+    public void setCost(Double cost) {
+        this.cost = cost;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
                 ", customer=" + customer +
-                ", product=" + product +
+                ", cost=" + cost +
                 '}';
     }
 }
